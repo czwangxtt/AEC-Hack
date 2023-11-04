@@ -1,23 +1,18 @@
-#! python 2
 import Rhino
 import rhinoscriptsyntax as rs
 import scriptcontext as sc
 import traceback
 
 
-import System
-import Rhino.UI
 import Eto
-import random
+
 import os
 FORM_KEY = 'AECademy_modeless_form'
-
-
-import clr
-clr.AddReference('System')
-from System import Environment
-from System.IO import Path, Directory
-
+BIN_FOLDER = "{}\\bin".format(os.path.dirname(os.path.realpath(__file__)))
+import sys
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+import utility
+reload(utility)
 
 
 def try_catch(func):
@@ -37,13 +32,15 @@ class AECedamyUI(Eto.Forms.Form):
     @try_catch
     def __init__(self):
  
+        self.data = None
+        
         
         # Basic form initialization
         self.initiate_form()
         # Create the form's controls
         self.build_form()
-
-
+        
+        self.check_ui()
 
 
     # Basic form initialization
@@ -59,7 +56,7 @@ class AECedamyUI(Eto.Forms.Form):
         
         
         # self.resource_folder = "{}\\bin".format(Path.cwd().parent)
-        self.resource_folder = "{}\\bin".format(os.path.dirname(os.path.realpath(__file__)))
+        self.resource_folder = BIN_FOLDER
 
         # FormClosed event handler
         self.Closed += self.form_close_clicked
@@ -72,16 +69,12 @@ class AECedamyUI(Eto.Forms.Form):
         layout.Padding = Eto.Drawing.Padding(10)
         layout.Spacing = Eto.Drawing.Size(5, 5)
 
-
         layout.Rows.Add(self.build_logo())
-        
         
         layout.Rows.Add(Eto.Forms.Label(Text = 'Search Database with your sketch!\nScan QR code below to begin sketching!' ))
         layout.Rows.Add(self.build_qr_code())
         layout.Rows.Add(Rhino.UI.Controls.Divider())
         layout.Rows.Add(self.create_user_buttons())
-        
-        
         
         # Set the content
         self.Content = layout
@@ -94,6 +87,7 @@ class AECedamyUI(Eto.Forms.Form):
         self.logo.Image = temp_bitmap.WithSize(200,200)
         return self.logo
 
+
     def build_qr_code(self):
         self.qr_code = Eto.Forms.ImageView()
         qr_code_path = r"{}\\QR.png".format(self.resource_folder)
@@ -101,26 +95,39 @@ class AECedamyUI(Eto.Forms.Form):
         self.qr_code.Image = temp_bitmap.WithSize(100,100)
         return self.qr_code
 
+
     def create_user_buttons(self):
         # Action button, func TBD
-        bt_action = Eto.Forms.Button(Text = ' Import! ')
-        bt_action.Click += self.action_bt_clicked
+        self.bt_action = Eto.Forms.Button(Text = ' Import! ')
+        self.bt_action.Click += self.action_bt_clicked
         
         bt_fetch = Eto.Forms.Button(Text = ' Get Update! ')
         bt_fetch.Click += self.fetch_bt_clicked
 
         layout = Eto.Forms.TableLayout(Spacing = Eto.Drawing.Size(5, 5))
-        layout.Rows.Add(Eto.Forms.TableRow(None,bt_fetch, bt_action, None))
+        layout.Rows.Add(Eto.Forms.TableRow(None,bt_fetch, self.bt_action, None))
         return layout
 
+    def check_ui(self):
+        if self.data:
+            self.bt_action.Enabled = True
+        else:
+            self.bt_action.Enabled = False
 
     @try_catch
     def action_bt_clicked(self, sender, e):
+        self.check_ui()
+        if not self.data:
+            return
         print ("importing")
+        utility.import_to_rhino(self.data)
+        
         
     @try_catch
     def fetch_bt_clicked(self, sender, e):
         print ("fetching")
+        self.data = utility.fetch_from_web()
+        self.check_ui()
         
         
     @try_catch
@@ -135,12 +142,8 @@ class AECedamyUI(Eto.Forms.Form):
             sc.sticky.Remove(FORM_KEY)
             
 
-    
-
-
 @try_catch
 def show_ui():
-    print ("Opening...")
     # See if the form is already visible
     if sc.sticky.has_key(FORM_KEY):
         return
@@ -151,9 +154,6 @@ def show_ui():
     form.Owner = Rhino.UI.RhinoEtoApp.MainWindow
     form.Show()
     sc.sticky[FORM_KEY] = form
-
-
-
 
 
 ######################  main code below   #########
