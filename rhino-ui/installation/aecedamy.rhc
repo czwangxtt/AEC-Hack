@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-16"?>
+<RhinoScriptCompilerProject>
+  <Plugin>
+    <PluginName>AECedamy</PluginName>
+    <Description>no description</Description>
+    <OutputPath>bin</OutputPath>
+    <AuthorName>Sen Zhang</AuthorName>
+    <AuthorEmail>zsenarchitect@gmail.com</AuthorEmail>
+    <AuthorPhone />
+    <AuthorAddress />
+    <AuthorCountry />
+    <AuthorWebsite />
+    <URL />
+    <CopyrightMessage />
+    <SemanticVersion>0.1.0</SemanticVersion>
+    <MinimumRhinoVersion>7.0</MinimumRhinoVersion>
+  </Plugin>
+  <Commands>
+    <!--Compiled Script: AECedamy-->
+    <Command>
+      <Name>AECedamy</Name>
+      <Path>..\ui.py</Path>
+      <Type>Normal</Type>
+    </Command>
+  </Commands>
+</RhinoScriptCompilerProject>
