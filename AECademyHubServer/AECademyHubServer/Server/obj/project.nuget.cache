@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "29MnUFyBVkG62xus8wK1qCjYuDpMuyrWBXJNMqiU8ov9l1fNR8OTwaT+m4NMa3q3uDDp5Todnhg3Ids1qXMphA==",
+  "dgSpecHash": "TcGCrLNFFF641p1fnB730EWBlnyvBcSHcMb5q7JD2iklKaMgv6Dwl8hDTjXhljtbcxkGxMbw+KHqP56vQKYqoA==",
   "success": true,
   "projectFilePath": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Server\\AECademyHubServer.Server.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.22\\microsoft.aspnetcore.components.webassembly.6.0.22.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\6.0.22\\microsoft.aspnetcore.components.webassembly.server.6.0.22.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.22\\microsoft.aspnetcore.metadata.6.0.22.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.extensions.configuration.binder\\6.0.0\\microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
@@ -28,6 +29,11 @@
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.jsinterop\\6.0.22\\microsoft.jsinterop.6.0.22.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.22\\microsoft.jsinterop.webassembly.6.0.22.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
