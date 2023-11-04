@@ -196,15 +196,15 @@
       "mscorlib.dll": "sha256-jzikATOUXZ4ADvFQ16S0KGAR1MWeQw31aXXccUFs08w=",
       "netstandard.dll": "sha256-87jtKWKXMg3nXj8D1mLQabI+cTWOPvy5ll3sBYj\/ZhI=",
       "System.Private.CoreLib.dll": "sha256-gjd6M5pA\/nOZEI8pvs9SPUAFG1Jppwr9Xl6v7Wab8Fc=",
-      "AECademyHubServer.Shared.dll": "sha256-kapQNMRc1CzFto\/t9U5NNX3RlXa5iUApkt6HbnjTJr4=",
-      "AECademyHubServer.Client.dll": "sha256-Wb4P9Kh6+8TjVelePYdTYG2wRxyd0t7QnCh0KZBLt34="
+      "AECademyHubServer.Shared.dll": "sha256-90pmEtoPSR4KVsvF0k\/HkiZgoFwhTQZtYJKNNRoToLg=",
+      "AECademyHubServer.Client.dll": "sha256-0CeHAckTzpPuzmPLPhW19yShD4AEf7YJYprdGpKxBkU="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "AECademyHubServer.Shared.pdb": "sha256-si69IAyotqXaRTd315H11TW4Rz17uOhSQyItphfKyG8=",
-      "AECademyHubServer.Client.pdb": "sha256-M54vFILCgK5j6qYbJh4iFDCIIw1MFTTW5JIx1+p6HhA="
+      "AECademyHubServer.Shared.pdb": "sha256-x9+7WnRR+20n2z65XsfyFk8FSmO76OaNo\/JmWCPdmfA=",
+      "AECademyHubServer.Client.pdb": "sha256-BMlzvLc8EQwxwbe\/rsBEDXkzTwSPwZBwHssFm3xb9z8="
     },
     "runtime": {
       "dotnet.6.0.23.fuwi9a7c7v.js": "sha256-YYG9NE7FnTlr1qMbQzBTzUGZOcLX64xP2Z1+An1jT6U=",
