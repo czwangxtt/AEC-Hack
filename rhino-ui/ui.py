@@ -13,6 +13,13 @@ import os
 FORM_KEY = 'AECademy_modeless_form'
 
 
+import clr
+clr.AddReference('System')
+from System import Environment
+from System.IO import Path, Directory
+
+
+
 def try_catch(func):
     def wrapper(*args, **kwargs):
         try:
@@ -46,7 +53,7 @@ class AECedamyUI(Eto.Forms.Form):
         self.Resizable = True
         self.Maximizable = False
         self.Minimizable = False
-        self.ShowInTaskbar = True
+        self.ShowInTaskbar = False
         self.MinimumSize = Eto.Drawing.Size(200, 150)
         
         
@@ -133,7 +140,7 @@ class AECedamyUI(Eto.Forms.Form):
 
 @try_catch
 def show_ui():
-
+    print ("Opening...")
     # See if the form is already visible
     if sc.sticky.has_key(FORM_KEY):
         return
