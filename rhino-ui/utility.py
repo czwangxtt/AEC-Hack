@@ -18,6 +18,7 @@ def get_local_folder():
     return folder
 
 def fetch_from_web():
+    import requests
     
 
 
@@ -25,8 +26,11 @@ def fetch_from_web():
 
 
 def download_file(url):
+    # if not a url, this is just a internal test location, just return the original address
     if not (url.startswith("http://") or url.startswith("https://")):
         return url
+    
+    
     file_raw = url.split('/')[-1]
     filename = os.path.join(get_local_folder(), file_raw)
 
