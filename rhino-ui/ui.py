@@ -34,6 +34,7 @@ class AECedamyUI(Eto.Forms.Form):
     def __init__(self):
  
         self.data = None
+        self.main_url = "https://github.com/zsenarchitect/AEC-Hack"
         
         
         # Basic form initialization
@@ -98,11 +99,20 @@ class AECedamyUI(Eto.Forms.Form):
 
 
     def build_qr_code(self):
+        layout = Eto.Forms.TableLayout(Spacing = Eto.Drawing.Size(5, 5))
         self.qr_code = Eto.Forms.ImageView()
         qr_code_path = r"{}\\QR.png".format(self.resource_folder)
         temp_bitmap = Eto.Drawing.Bitmap(qr_code_path)
         self.qr_code.Image = temp_bitmap.WithSize(100,100)
-        return self.qr_code
+        
+        bt_open_url = Eto.Forms.Button(Text = ' Open In Browser ')
+        bt_open_url.Click += self.open_url_clicked
+        bt_open_url.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
+        bt_open_url.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
+        
+        layout.Rows.Add(Eto.Forms.TableRow(None, self.qr_code, None))
+        layout.Rows.Add(Eto.Forms.TableRow(None, bt_open_url, None))
+        return layout
 
 
     def create_user_buttons(self):
@@ -127,7 +137,7 @@ class AECedamyUI(Eto.Forms.Form):
             self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
         else:
             self.bt_action.Enabled = False
-            self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(200 ,200,200)
+            self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(100 ,200,200)
 
     @try_catch
     def action_bt_clicked(self, sender, e):
@@ -137,6 +147,11 @@ class AECedamyUI(Eto.Forms.Form):
         print ("importing")
         utility.import_to_rhino(self.data)
         
+        
+    @try_catch
+    def open_url_clicked(self, sender, e):
+        import webbrowser
+        webbrowser.open(self.main_url)
         
     @try_catch
     def fetch_bt_clicked(self, sender, e):

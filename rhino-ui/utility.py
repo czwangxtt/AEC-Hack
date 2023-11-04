@@ -25,11 +25,13 @@ def fetch_from_web():
 
 
 def download_file(url):
-    filename = os.path.join(get_local_folder(), 'temp.py')
+    if not (url.startswith("http://") or url.startswith("https://")):
+        return url
+    file_raw = url.split('/')[-1]
+    filename = os.path.join(get_local_folder(), file_raw)
 
 
     client = WebClient()
-    url = "https://raw.githubusercontent.com/mcneel/rhinoscriptsyntax/rhino-6.x/Scripts/tests/AddPatchTests.py" 
      
 
     try:
@@ -94,14 +96,27 @@ def download_file(url):
 def import_to_rhino(data):
     model_url = data.get("model_url", None)
     if not model_url:
+        model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test.gh"
         model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test_sampler.3dm"
+        model_url = "https://raw.githubusercontent.com/mcneel/rhinoscriptsyntax/rhino-6.x/Scripts/tests/AddPatchTests.py" 
         
     print (model_url)
     
-    local_model_path = download_file(model_url)
-    if not local_model_path:
+    download_path = download_file(model_url)
+    if not download_path:
         
         return
+    
+    print download_path
+    extention = os.path.splitext(download_path)[1]
+    print extention
+    func_dict = {".3dm": process_3dm,
+                 ".gh":process_gh}
+    func = func_dict.get(extention, process_other)
+    func(download_path)
+
+
+def process_3dm(local_model_path):
     
     rs.EnableRedraw(False)
     rs.Command("_-import \"{}\" -enter -enter".format(local_model_path))
@@ -147,3 +162,9 @@ def safely_delete_used_layer(layers_to_remove):
         rs.DeleteLayer(layer)
     rs.Command("_NoEcho _Purge _Pause _Materials=_No _BlockDefinitions=_No _AnnotationStyles=_No _Groups=_No _HatchPatterns=_No _Layers=_Yes _Linetypes=_No _Textures=_No Environments=_No _Bitmaps=_No _Enter")
 
+def process_gh(download_path):
+    print ("processing GH")
+    rs.Command("-Grasshopper Document Open \"{}\" Enter".format(download_path))
+
+def process_other(download_path):
+    os.startfile(download_path)
