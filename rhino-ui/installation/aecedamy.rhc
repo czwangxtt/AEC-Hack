@@ -3,7 +3,7 @@
   <Plugin>
     <PluginName>AECedamy</PluginName>
     <Description>no description</Description>
-    <OutputPath>bin</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <AuthorName>Sen Zhang</AuthorName>
     <AuthorEmail>zsenarchitect@gmail.com</AuthorEmail>
     <AuthorPhone />
@@ -12,7 +12,7 @@
     <AuthorWebsite />
     <URL />
     <CopyrightMessage />
-    <SemanticVersion>0.1.0</SemanticVersion>
+    <SemanticVersion>0.1.1</SemanticVersion>
     <MinimumRhinoVersion>7.0</MinimumRhinoVersion>
   </Plugin>
   <Commands>

@@ -4,6 +4,7 @@ import rhinoscriptsyntax as rs
 import scriptcontext as sc
 import traceback
 
+
 import System
 import Rhino.UI
 import Eto
@@ -47,8 +48,11 @@ class AECedamyUI(Eto.Forms.Form):
         self.Minimizable = False
         self.ShowInTaskbar = True
         self.MinimumSize = Eto.Drawing.Size(200, 150)
+        
+        
+        
+        # self.resource_folder = "{}\\bin".format(Path.cwd().parent)
         self.resource_folder = "{}\\bin".format(os.path.dirname(os.path.realpath(__file__)))
-
 
         # FormClosed event handler
         self.Closed += self.form_close_clicked

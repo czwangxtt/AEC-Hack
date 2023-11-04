@@ -1,11 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RhinoUI major_ver="3" minor_ver="0" guid="39c467db-0c23-4e3d-9c2f-b3e361eb822d" localize="False" default_language_id="1033" dpi_scale="125">
-  <extend_rhino_menus />
+  <extend_rhino_menus>
+    <menu guid="d58ceae7-fdb0-4104-80da-274b94ad44a9">
+      <text>
+        <locale_1033>Extend Rhino Menus</locale_1033>
+      </text>
+    </menu>
+  </extend_rhino_menus>
   <menus />
   <tool_bar_groups>
-    <tool_bar_group guid="e01d25dc-29e9-4c62-8026-fdcbce3df477" dock_bar_guid32="00000000-0000-0000-0000-000000000000" dock_bar_guid64="91c68e56-17f1-419e-9fbb-43c6b993b9f2" active_tool_bar_group="5941491c-09b0-42cf-bfb1-ad5225dfe645" single_file="False" hide_single_tab="False" point_floating="935,954">
+    <tool_bar_group guid="e01d25dc-29e9-4c62-8026-fdcbce3df477" dock_bar_guid32="00000000-0000-0000-0000-000000000000" dock_bar_guid64="91c68e56-17f1-419e-9fbb-43c6b993b9f2" active_tool_bar_group="5941491c-09b0-42cf-bfb1-ad5225dfe645" single_file="False" hide_single_tab="False" point_floating="1096,286">
       <text>
-        <locale_1033>Toolbar group</locale_1033>
+        <locale_1033>AECademy</locale_1033>
       </text>
       <tool_bar_group_item guid="5941491c-09b0-42cf-bfb1-ad5225dfe645" major_version="1" minor_version="1">
         <text>
@@ -13,31 +19,81 @@
         </text>
         <tool_bar_id>7021bf06-2a4e-48d2-bc83-dd4224436550</tool_bar_id>
       </tool_bar_group_item>
-      <dock_bar_info dpi_scale="125" dock_bar="False" docking="True" horz="False" visible="True" floating="True" mru_float_style="4096" bar_id="59551" mru_width="32767" point_pos="-1,-1" float_point="935,954" rect_mru_dock_pos="0,0,0,0" dock_location_u="59420" dock_location="left" float_size="41,65" />
+      <dock_bar_info dpi_scale="125" dock_bar="False" docking="True" horz="False" visible="True" floating="True" mru_float_style="8192" bar_id="59550" mru_width="868" point_pos="-2,-2" float_point="1096,286" rect_mru_dock_pos="0,0,0,0" dock_location_u="59419" dock_location="top" float_size="185,65" />
     </tool_bar_group>
   </tool_bar_groups>
   <tool_bars>
     <tool_bar guid="7021bf06-2a4e-48d2-bc83-dd4224436550">
       <text>
-        <locale_1033>Toolbar</locale_1033>
+        <locale_1033>AECademy</locale_1033>
       </text>
       <tool_bar_item guid="38798e32-6c51-49f5-a8c9-f00a92da2dfd">
         <text>
           <locale_1033>Toolbar item</locale_1033>
         </text>
+        <left_macro_id>cb32e114-8637-4cf4-b1b2-541be2a9b0bb</left_macro_id>
       </tool_bar_item>
     </tool_bar>
   </tool_bars>
-  <macros />
+  <macros>
+    <macro_item guid="cb32e114-8637-4cf4-b1b2-541be2a9b0bb" bitmap_id="44401909-423e-4b4a-9117-e31e6ef91265">
+      <text>
+        <locale_1033>Macro</locale_1033>
+      </text>
+      <button_text>
+        <locale_1033>AECademy</locale_1033>
+      </button_text>
+      <script>! _-RunPythonScript "C:\Users\szhang\github\AEC-Hack\rhino-ui\ui.py"</script>
+    </macro_item>
+  </macros>
   <bitmaps>
     <small_bitmap item_width="16" item_height="16">
-      <bitmap />
+      <bitmap_item guid="44401909-423e-4b4a-9117-e31e6ef91265" index="0" />
+      <bitmap>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlz
+AAAScgAAEnIBXmVb4wAAAT5JREFUOE9jgIImIO4gEssAMSow0Nf635AmSBRua2v7D9WGAIYG2v8/
+HFAgCmM1YOuG+VgVg/Dt9bIofKwGgLyArAiG3+1T+J+1+QaKGJIBxlAa0wBFAXYwDmhf9L/o4Iv/
+lgY8KAYwMzF+/xNr+99fVvg3VgNAkq2GCmDNMAyTY2Fj/Zv8afV/fi6231wsTJgGqCjwgA2AYZg4
+CLNzsPwT3p/7X+ZI6X9GTtZfYM0gADMA5uTX4ZZwDNPMxsGM0MzBCrEZBmAGFOx7Anfyq93yWDUz
+cbD+gWpDAJgBz3fI/7eIL/7Pw80G1wyKCTZWlv+yR4GaOVn/khSNICwnI/X/7fpWkCYwn2QD7I25
+Ufg4Dfh80vH/p1NueDFOA8xMjcBOJAZjNWD9+vX/0XFmZub/pUuXYog3NDQgGcDAAABGb8ZzQSnZ
+tQAAAABJRU5ErkJggg==</bitmap>
     </small_bitmap>
     <normal_bitmap item_width="24" item_height="24">
-      <bitmap />
+      <bitmap_item guid="44401909-423e-4b4a-9117-e31e6ef91265" index="0" />
+      <bitmap>iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlz
+AAAScgAAEnIBXmVb4wAAAsBJREFUSEutlF9IU1EAxm83XTUNY9bMzS1BE2Nu6jbFRv4J20MuM3RZ
+KBolms7E3EgMKudDY4gzekjQJAuMHsIWqPUgZQPrUSohLXwoggiif4RJtO3rnut23XTTq/nBj3HP
+Dt/vcA7nUL5kMtj/kwSG0LFYLB5j6VGsm7ISmEwmr69ueaxWq/vWlV348SxxzfycyMCdDjFsNhuY
+qk0LjUtCBAPt6xPMz3byE7wYkIQsWA3egtHru0MWBDIzJIN6nzBojLeAzxmo1EkwDc9g8q6UGwsj
+0DAsysIJXH0SjN2IZ+lp24na+5Mwuz5DkaXk5iwVyKO2vJyvPIDa5Lg/zHfsigKzSgp3VS6L5uBh
+tpzQOPoO/ZfFywR03PZXOUliN5nvHRpAjICe4CW4mpmI808+cgKC2lgTJIgQRHrErmZoOyoQIxT8
+nW4wgqapal6CElksKlQpKFMko7xYxmI0SDE5KGUFymyRN3a8Cdsqtcgca4NosBoUTdWw5SSBgq9P
+E5Gu3YvSzntoSpNzW0T4dDxn2SLSdRKQcmGdDqkjLdA8tHgpmjb5qhcSKCjOi+K2oUEhx5cT+zmm
+j2mDygVbN7MrF9bqkDBxAWmjZmbldL2vdjGBgtz8FE5w7vEszj54jbGeeLwflrP4yy/ezpvzbwtZ
+OVseSZ/xVQYnUFBv3IHmgAM9Yu3lSv0oVdHcylOZYo3TjEN6PXns+F00XYYQOacskCnVGL4WfMO/
+MWfUZy6HQC3zyp6TbbGgIEu4MTeZIBZFYKq/FY9sdYhuLvD2Omo27qn4MCJH1cnT2JMghz5bBNdN
+SbinIjh8BS2VMcjXROH7+OLYhgpCsSbB3MwlzE014vfbdv68aeUnYH7IhHWzqsDpdCIcRUVFMBgM
+If/zs6KgsLDwl91u96yF7u5ut8Ph8HR1dbnJt0KhIO//klDUPyeBON6RCy2IAAAAAElFTkSuQmCC</bitmap>
     </normal_bitmap>
     <large_bitmap item_width="32" item_height="32">
-      <bitmap />
+      <bitmap_item guid="44401909-423e-4b4a-9117-e31e6ef91265" index="0" />
+      <bitmap>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlz
+AAAScgAAEnIBXmVb4wAAA2NJREFUWEe9l1tIU3Ecx3du29wkL/OCtzltFNQkL6VZrFgxo14yMCIk
+RCRhm0YXAhWKUUy7WD0GRmWGEfYwK4RopXbxQd96CIqgp6Do6lTSmtuv8/+fnXW2c05ux+UXPkz/
+5/L9nP/OOX9VCXKG5dx/oJDl3yFJctHr9cL/wGq1LoZr5GM2m3+Wb1gH7taMpEISBHR3dwNbQXNN
+MuEFpsdNScH/Yj3+pKgEBCrKuYOSwczULvyZkED/tV7RiZSiSGBk+KboRPHwzlskGlMkoOQeqN+x
+CtgnSDS+IgLfR01QtrsBnA/fwPkjmVHblhCoYqG4H8NRIpCRroHjzz5hcktWR22TE6AJYuHrgVrY
+U5AZYH+1oDGcpQRK8xgoYQt5snU01PcMRAQQteWpkf2lBCiSmA8cssIiS/CsC/YWGZCELi6B4hwG
+H8hDUWRUOaK6sQ0+PirG+4sESGLB4HNCmk4dwOc4XAfBK51IzJWwgKfCBK6RtyIBhEZD4/2FArSa
+CRpG26Fl5h4QOjWWCN3oBR1NohngkogAuzuUVG2RxGAshadX8yICKkIFqNww1o7LW/xDkO1z4XOw
+EKgbR05g+FIumE2pQLNXwgsI8dnLRMcgkIBGS4dQMV9e+PIkNE3fBSKF+c1WklxzOFICljV6aL49
+gac2JycrIQFNSgLlKLEC7x8Yo+5yJPCFfXxi8drEs6bWUiHhtEfKtQz6zv9OuzCxAp3N6ZFyhOP+
+a2jsewwNl4eg350N4335EYTlRnN6IKEr5xMrcP10Nhwd/RAlgdh34Q589nGPWiz4yiXKSS2D/iBh
+uCaZSN0DaVlZIgH0/Av34UnV01F3u7Dc4/HgFxHXJBMpAfRSIUgCNjedgMr9rWyJOmo7D1oTOg7u
+BDVD4/KiiXB5ChOUWQvEkRKIF9tGPXzzejBIAs0CpVOHfozJLkbiLEfAWJgPDE1hgScXHfgl45+U
+Xoxko1Sgpy0TOo6dgm1bbaBPoWBqoACPSy1GXJNMlAqwh8L2Kj2+D4TjKyYgx7IEZidt4H++lj1J
+nWLmXrUoF0gmCQlUb6rE32myiVtA6v+6ZBCXgNFojFvA4XBgBgcHJbfH4na7kYD8QoRC0/Qti8Uy
+X1NT82s5dHV1zdrt9gWn0znHj1EUNReukYhK9QewBlK7o585UAAAAABJRU5ErkJggg==</bitmap>
     </large_bitmap>
   </bitmaps>
   <scripts />
