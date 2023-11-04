@@ -11,6 +11,7 @@ FORM_KEY = 'AECademy_modeless_form'
 BIN_FOLDER = "{}\\bin".format(os.path.dirname(os.path.realpath(__file__)))
 import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+sys.path.append(BIN_FOLDER)
 import utility
 reload(utility)
 
@@ -51,6 +52,7 @@ class AECedamyUI(Eto.Forms.Form):
         self.Maximizable = False
         self.Minimizable = False
         self.ShowInTaskbar = False
+        
         self.MinimumSize = Eto.Drawing.Size(200, 150)
         
         
@@ -71,10 +73,17 @@ class AECedamyUI(Eto.Forms.Form):
 
         layout.Rows.Add(self.build_logo())
         
-        layout.Rows.Add(Eto.Forms.Label(Text = 'Search Database with your sketch!\nScan QR code below to begin sketching!' ))
+        A = Eto.Forms.Label(Text = 'Search Database with your sketch!\nScan QR code below to begin sketching!' )
+        A.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
+        # A.Font = Eto.Drawing.Font(size = 20)
+        # A.HorizontalAlignment = Eto.Forms.HorizontalAlignment.Center
+        # A.FontFamily = Eto.Drawing.FontFamily("Cascadia Mono")
+        layout.Rows.Add(A)
         layout.Rows.Add(self.build_qr_code())
         layout.Rows.Add(Rhino.UI.Controls.Divider())
         layout.Rows.Add(self.create_user_buttons())
+        
+        layout.BackgroundColor = Eto.Drawing.Color.FromArgb(0, 0, 0)
         
         # Set the content
         self.Content = layout
@@ -100,9 +109,13 @@ class AECedamyUI(Eto.Forms.Form):
         # Action button, func TBD
         self.bt_action = Eto.Forms.Button(Text = ' Import! ')
         self.bt_action.Click += self.action_bt_clicked
+        self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
+        self.bt_action.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
         
         bt_fetch = Eto.Forms.Button(Text = ' Get Update! ')
         bt_fetch.Click += self.fetch_bt_clicked
+        bt_fetch.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
+        bt_fetch.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
 
         layout = Eto.Forms.TableLayout(Spacing = Eto.Drawing.Size(5, 5))
         layout.Rows.Add(Eto.Forms.TableRow(None,bt_fetch, self.bt_action, None))
@@ -111,8 +124,10 @@ class AECedamyUI(Eto.Forms.Form):
     def check_ui(self):
         if self.data:
             self.bt_action.Enabled = True
+            self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
         else:
             self.bt_action.Enabled = False
+            self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(200 ,200,200)
 
     @try_catch
     def action_bt_clicked(self, sender, e):
