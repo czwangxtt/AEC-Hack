@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "weExh1oCsqwOT6HmzR+dM+dzmiNe0hasxO4VM9huJD8=",
+  "Hash": "WBlZm7Gtx+vXdGYv8e8OXfJKHOV/o4KDqTUc0j0YC5c=",
   "Source": "AECademyHubServer.Server",
   "BasePath": "_content/AECademyHubServer.Server",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "AECademyHubServer.Client",
       "GetPublishAssetsTargets": "ComputeFilesToPublish;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "BuildProjectReferences=false;ResolveAssemblyReferencesFindRelatedSatellites=true;_PublishingBlazorWasmProject=true;Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "BuildProjectReferences=false;ResolveAssemblyReferencesFindRelatedSatellites=true;_PublishingBlazorWasmProject=true",
       "AdditionalPublishPropertiesToRemove": "NoBuild;RuntimeIdentifier;WebPublishProfileFile;TargetFramework",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     }
   ],
@@ -182,23 +182,6 @@
       "OriginalItemSpec": "C:\\Users\\cwang\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.23\\runtimes\\browser-wasm\\native\\dotnet.wasm"
     },
     {
-      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
-      "SourceId": "AECademyHubServer.Client",
-      "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt.dat",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "native",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\cwang\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.23\\runtimes\\browser-wasm\\native\\icudt.dat"
-    },
-    {
       "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt_CJK.dat",
       "SourceId": "AECademyHubServer.Client",
       "SourceType": "Project",
@@ -248,6 +231,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\cwang\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.23\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+    },
+    {
+      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
+      "SourceId": "AECademyHubServer.Client",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt.dat",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "native",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\cwang\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.23\\runtimes\\browser-wasm\\native\\icudt.dat"
     },
     {
       "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
@@ -6948,6 +6948,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "AECademyHubServer.Client",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
+    },
+    {
       "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "AECademyHubServer.Client",
       "SourceType": "Project",
@@ -7048,23 +7065,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
-    },
-    {
-      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "AECademyHubServer.Client",
-      "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",

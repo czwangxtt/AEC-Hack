@@ -1,13 +1,19 @@
 global using AECademyHubServer.Server.Services.ObjectService;
 global using AECademyHubServer.Server.Services.SuggestionService;
+global using AECademyHubServer.Server.Data;
 global using AECademyHubServer.Shared;
 global using AECademyHubServer.Shared.Suggestion;
 global using AECademyHubServer.Shared.Object;
+global using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection"));
+});
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
