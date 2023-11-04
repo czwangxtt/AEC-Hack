@@ -1,7 +1,8 @@
+#! python 2
 import Rhino
 import rhinoscriptsyntax as rs
 import scriptcontext as sc
-
+import traceback
 
 import System
 import Rhino.UI
@@ -11,9 +12,21 @@ import os
 FORM_KEY = 'AECademy_modeless_form'
 
 
+def try_catch(func):
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            rs.TextOut(traceback.format_exc())
+            return None
+        
+    return wrapper
+
+
 class AECedamyUI(Eto.Forms.Form):
 
     # Initializer
+    @try_catch
     def __init__(self):
  
         
@@ -54,6 +67,7 @@ class AECedamyUI(Eto.Forms.Form):
         
         layout.Rows.Add(Eto.Forms.Label(Text = 'Search Database with your sketch!\nScan QR code below to begin sketching!' ))
         layout.Rows.Add(self.build_qr_code())
+        layout.Rows.Add(Rhino.UI.Controls.Divider())
         layout.Rows.Add(self.create_user_buttons())
         
         
@@ -89,19 +103,18 @@ class AECedamyUI(Eto.Forms.Form):
         return layout
 
 
-
+    @try_catch
     def action_bt_clicked(self, sender, e):
         print ("importing")
         
-    
+    @try_catch
     def fetch_bt_clicked(self, sender, e):
         print ("fetching")
         
         
-        
+    @try_catch
     def form_close_clicked(self, sender, e):
-        # Remove the events added in the initializer
-        self.RemoveEvents()
+
         # Dispose of the form and remove it from the sticky dictionary
         if sc.sticky.has_key(FORM_KEY):
             form = sc.sticky[FORM_KEY]
@@ -114,7 +127,7 @@ class AECedamyUI(Eto.Forms.Form):
     
 
 
-
+@try_catch
 def show_ui():
 
     # See if the form is already visible
