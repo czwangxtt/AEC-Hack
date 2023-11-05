@@ -1,0 +1,37 @@
+{
+  "id": "fdb21e74-f5ae-42ac-be42-9fbf07c34fad",
+  "identity": {
+    "name": "AECademy",
+    "version": "0.1",
+    "publisher": {
+      "email": "zsenarchitect@gmail.com",
+      "name": "Sen Zhang"
+    },
+    "copyright": "Copyright \u00A9 2023 Sen Zhang"
+  },
+  "settings": {
+    "buildPath": "file:///C:/Users/sen.zhang/github/AEC-Hack/rhino-ui",
+    "buildTarget": {
+      "appName": "Rhino3D",
+      "appVersion": {
+        "major": 7
+      },
+      "title": "Rhino3D (7.*)",
+      "slug": "rh7"
+    },
+    "publishTarget": {
+      "title": "McNeel Yak Server"
+    }
+  },
+  "codes": [
+    {
+      "id": "ac0966ec-7c92-4ef4-8cc8-c4ab2e75130c",
+      "language": {
+        "id": "*.*.python",
+        "version": "*.*.*"
+      },
+      "title": "ui",
+      "uri": "ui.py"
+    }
+  ]
+}
