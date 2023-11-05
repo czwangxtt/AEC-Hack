@@ -88,6 +88,7 @@ function Layout() {
     const prompt = "test";
 
     if (base64ImageData) {
+      console.log(`${apiUrl}/Suggestion/GetSuggestion`);
       try {
         // use agnet proxy
         const response = await fetch(`${apiUrl}/Suggestion/GetSuggestion`, {
