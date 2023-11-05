@@ -1,9 +1,11 @@
 global using AECademyHubServer.Server.Services.ObjectService;
 global using AECademyHubServer.Server.Services.SuggestionService;
+global using AECademyHubServer.Server.Services.QueueService;
 global using AECademyHubServer.Server.Data;
 global using AECademyHubServer.Shared;
 global using AECademyHubServer.Shared.Suggestion;
 global using AECademyHubServer.Shared.Object;
+global using AECademyHubServer.Shared.Queue;
 global using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
 
@@ -22,6 +24,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IObjectService, ObjectService>();
 builder.Services.AddScoped<ISuggestionService, SuggestionService>();
+builder.Services.AddScoped<IQueueService, QueueService>();
 
 var app = builder.Build();
 
