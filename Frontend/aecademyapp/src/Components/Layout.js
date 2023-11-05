@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import Sketchpad from "./Sketchpad";
 import "../Styles/Layout.css";
 
 function Layout() {
   const [activeKey, setActiveKey] = useState("tab1");
+
+  // 组件挂载时禁止滚动
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    // 组件卸载时恢复滚动
+    return () => (document.body.style.overflow = originalStyle);
+  }, []);
 
   return (
     <Container fluid className="layout-container">
