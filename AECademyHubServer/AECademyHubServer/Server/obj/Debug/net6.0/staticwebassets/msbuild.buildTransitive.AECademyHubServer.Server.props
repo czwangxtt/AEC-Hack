@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\AECademyHubServer.Server.props" />
+</Project>

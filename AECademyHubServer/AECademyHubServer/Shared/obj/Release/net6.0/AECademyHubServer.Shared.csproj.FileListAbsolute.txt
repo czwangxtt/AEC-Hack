@@ -1,0 +1,11 @@
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\bin\Release\net6.0\AECademyHubServer.Shared.deps.json
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\bin\Release\net6.0\AECademyHubServer.Shared.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\bin\Release\net6.0\AECademyHubServer.Shared.pdb
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\AECademyHubServer.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\AECademyHubServer.Shared.AssemblyInfoInputs.cache
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\AECademyHubServer.Shared.AssemblyInfo.cs
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\AECademyHubServer.Shared.csproj.CoreCompileInputs.cache
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\AECademyHubServer.Shared.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\refint\AECademyHubServer.Shared.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\AECademyHubServer.Shared.pdb
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Shared\obj\Release\net6.0\ref\AECademyHubServer.Shared.dll
