@@ -17,3 +17,26 @@
   height: 80vh;
   background-color: rgb(249, 250, 250);
 }
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.image-container {
+  width: calc(50% - 8px);
+  margin-bottom: 16px; /* 添加底部间隙 */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  text-align: center; /* 描述居中 */
+  padding-top: 8px; /* 与图片有些间隙 */
+}

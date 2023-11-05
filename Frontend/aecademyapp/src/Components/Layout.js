@@ -8,9 +8,11 @@ import { useData } from "./DataContext";
 function Layout() {
   const [activeKey, setActiveKey] = useState("tab1");
   const [canvas, setCanvas] = useState(null); // 定义状态来存储canvas引用
-  const [imagePreviewUrl, setImagePreviewUrl] = useState(""); // 新的状态变量保存图片的URL
   const { setData } = useData(); // 使用useData钩子
   const apiUrl = process.env.REACT_APP_API_URL || "/api"; // 本地开发时回退到代理
+  const [dataItems, setDataItems] = useState([]); // 存储整个数据的数组
+  const [selectedItems, setSelectedItems] = useState({});//义一个状态来跟踪选中的项目
+
 
   // Disable scrolling when component is mounted
   useEffect(() => {
@@ -54,8 +56,10 @@ function Layout() {
 
         if (response.ok) {
           const responseData = await response.json();
-          setImagePreviewUrl(responseData.data[1].previewUrl);
-          console.log(responseData.data[1].previewUrl);
+          // console.log(responseData.data[1].previewUrl);
+          //10 image testing
+          setDataItems(responseData.data.slice(0, 10)); // 取前10个数据项
+          const urls = responseData.data.map((item) => item.previewUrl); // 假设每个数据项都有 previewUrl
           setData(responseData); // 存储整个响应数据，以便在其他组件中使用
           console.log(responseData); // 这里可以根据响应做进一步处理
         } else {
@@ -103,8 +107,20 @@ function Layout() {
           </Container>
         </Tab>
         <Tab eventKey="tab2" title="Selection">
-          <h2>This is the content for Tab 2</h2>
-          {imagePreviewUrl && <img src={imagePreviewUrl} alt="Preview" />}{" "}
+          <h2>Select your preference!</h2>
+          <div className="image-gallery">
+            {dataItems.map((item, index) => (
+              <div
+                key={item.guid}
+                className={`image-container ${
+                  index % 2 === 0 ? "new-row" : ""
+                }`}
+              >
+                {item.previewUrl && <img src={item.previewUrl} alt="Preview" />}
+                <p className="description">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </Tab>
       </Tabs>
     </Container>
