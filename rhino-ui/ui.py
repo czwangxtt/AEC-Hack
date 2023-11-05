@@ -47,7 +47,7 @@ class AECedamyUI(Eto.Forms.Form):
 
     # Basic form initialization
     def initiate_form(self):
-        self.Title = 'AECademy Hub'
+        self.Title = 'AECademy'
         self.Padding = Eto.Drawing.Padding(5)
         self.Resizable = True
         self.Maximizable = False
@@ -117,7 +117,7 @@ class AECedamyUI(Eto.Forms.Form):
 
     def create_user_buttons(self):
         # Action button, func TBD
-        self.bt_action = Eto.Forms.Button(Text = ' Import! ')
+        self.bt_action = Eto.Forms.Button(Text = ' Aquire! ')
         self.bt_action.Click += self.action_bt_clicked
         self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
         self.bt_action.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
@@ -127,17 +127,28 @@ class AECedamyUI(Eto.Forms.Form):
         bt_fetch.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
         bt_fetch.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
 
+
+        self.bt_upload = Eto.Forms.Button(Text = ' Publish! ')
+        self.bt_upload.Click += self.fetch_bt_clicked
+        self.bt_upload.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
+        self.bt_upload.TextColor = Eto.Drawing.Color.FromArgb(255, 255, 255)
+        
+        
         layout = Eto.Forms.TableLayout(Spacing = Eto.Drawing.Size(5, 5))
-        layout.Rows.Add(Eto.Forms.TableRow(None,bt_fetch, self.bt_action, None))
+        layout.Rows.Add(Eto.Forms.TableRow(None,bt_fetch, self.bt_action, self.bt_upload, None))
         return layout
 
     def check_ui(self):
         if self.data:
             self.bt_action.Enabled = True
             self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
+            self.bt_upload.Enabled = True
+            self.bt_upload.BackgroundColor = Eto.Drawing.Color.FromArgb(50,50,50)
         else:
             self.bt_action.Enabled = False
             self.bt_action.BackgroundColor = Eto.Drawing.Color.FromArgb(100 ,200,200)
+            self.bt_upload.Enabled = True
+            self.bt_upload.BackgroundColor = Eto.Drawing.Color.FromArgb(100,150,150)
 
     @try_catch
     def action_bt_clicked(self, sender, e):
