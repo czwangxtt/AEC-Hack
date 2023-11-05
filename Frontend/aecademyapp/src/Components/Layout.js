@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import Sketchpad from "./Sketchpad";
 import "../Styles/Layout.css";
@@ -12,6 +12,7 @@ function Layout() {
   const apiUrl = process.env.REACT_APP_API_URL || "/api"; // 本地开发时回退到代理
   const [dataItems, setDataItems] = useState([]); // 存储整个数据的数组
   const [selectedItems, setSelectedItems] = useState({}); //义一个状态来跟踪选中的项目
+  const sketchpadRef = useRef();
 
   // Disable scrolling when component is mounted
   useEffect(() => {
@@ -22,17 +23,20 @@ function Layout() {
     return () => (document.body.style.overflow = originalStyle);
   }, []);
 
+  const handleClear = () => {
+    sketchpadRef.current.clearCanvas(); // 通过ref调用Sketchpad的clearCanvas方法
+  };
   const handleCanvasReady = (canvasElement) => {
     setCanvas(canvasElement);
   };
 
   const getBase64Image = () => {
-    if (canvas) {
+    if (canvas && canvas.toDataURL) {
+      // 确保canvas是一个canvas DOM元素
       return canvas.toDataURL("image/png");
     }
     return null;
   };
-
   const handleCheckboxChange = (e, guid, item) => {
     const checked = e.target.checked;
     setSelectedItems((prev) => {
@@ -134,21 +138,23 @@ function Layout() {
       >
         <Tab eventKey="tab1" title="Sketch">
           <Row className="layout-sketchpad">
-            <Sketchpad onSave={handleCanvasReady} />
+            <Sketchpad ref={sketchpadRef} onSave={handleCanvasReady} />
           </Row>
           <Container className="layout-Btn-container">
             <Row className="layout-Btn-row">
-              <Col xs={3} className="submit-Btn">
+              <Col xs={6} className="submit-Btn">
                 <SubmitButton onImageSubmit={handleSubmit} />
               </Col>
-              <Col xs={3} className="redo-Btn">
+              {/* <Col xs={3} className="redo-Btn">
                 <button className="btn btn-secondary w-100">Redo</button>
               </Col>
               <Col xs={3} className="undo-Btn">
                 <button className="btn btn-success w-100">Undo</button>
-              </Col>
-              <Col xs={3} className="clear-Btn">
-                <button className="btn btn-success w-100">Clear</button>
+              </Col> */}
+              <Col xs={6} className="clear-Btn">
+                <button className="btn btn-danger w-100" onClick={handleClear}>
+                  Clear
+                </button>
               </Col>
             </Row>
           </Container>

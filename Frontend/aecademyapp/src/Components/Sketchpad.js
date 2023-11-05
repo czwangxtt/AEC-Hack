@@ -1,14 +1,19 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 
-const Sketchpad = ({ onSave }) => {
+const Sketchpad = forwardRef(({ onSave }, ref) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
 
-  const exportImage = () => {
-    const base64ImageData = canvasRef.current.toDataURL("image/png");
-    onSave(base64ImageData);
-  };
+  useImperativeHandle(ref, () => ({
+    clearCanvas,
+  }));
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -25,20 +30,19 @@ const Sketchpad = ({ onSave }) => {
     contextRef.current = context;
   }, []);
 
-  useEffect(() => {
-    onSave(canvasRef.current);
-  }, [onSave]);
-
   const startDrawing = (event) => {
     const { offsetX, offsetY } = getCoordinates(event);
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
   };
-
   const finishDrawing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
+    if (onSave && canvasRef.current instanceof HTMLCanvasElement) {
+      // 确保是canvas元素
+      onSave(canvasRef.current); // 传递canvas DOM元素
+    }
   };
 
   const draw = (event) => {
@@ -50,17 +54,19 @@ const Sketchpad = ({ onSave }) => {
     contextRef.current.stroke();
   };
 
-  // Helper function to get the coordinates based on event type
+  const clearCanvas = () => {
+    const context = contextRef.current;
+    context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+  };
+
   const getCoordinates = (event) => {
     if (event.touches && event.touches.length > 0) {
-      // For touch events
       const touch = event.touches[0];
       return {
         offsetX: touch.clientX - touch.target.offsetLeft,
         offsetY: touch.clientY - touch.target.offsetTop,
       };
     } else {
-      // For mouse events
       return {
         offsetX: event.nativeEvent.offsetX,
         offsetY: event.nativeEvent.offsetY,
@@ -77,9 +83,9 @@ const Sketchpad = ({ onSave }) => {
       onTouchStart={startDrawing}
       onTouchMove={draw}
       onTouchEnd={finishDrawing}
-      ref={canvasRef}
+      ref={canvasRef} // 确保这里的ref设置正确
     />
   );
-};
+});
 
 export default Sketchpad;
