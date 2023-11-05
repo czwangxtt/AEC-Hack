@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import Sketchpad from "./Sketchpad";
 import "../Styles/Layout.css";
@@ -7,11 +7,31 @@ import { useData } from "./DataContext";
 
 function Layout() {
   const [activeKey, setActiveKey] = useState("tab1");
+  const sketchpadRef = useRef(null); // 用useRef来保存对Sketchpad的引用
+
   const [canvas, setCanvas] = useState(null); // 定义状态来存储canvas引用
   const { setData } = useData(); // 使用useData钩子
   const apiUrl = process.env.REACT_APP_API_URL || "/api"; // 本地开发时回退到代理
   const [dataItems, setDataItems] = useState([]); // 存储整个数据的数组
   const [selectedItems, setSelectedItems] = useState({}); //义一个状态来跟踪选中的项目
+
+  const handleUndo = () => {
+    if (sketchpadRef.current) {
+      sketchpadRef.current.undo();
+    }
+  };
+
+  const handleRedo = () => {
+    if (sketchpadRef.current) {
+      sketchpadRef.current.redo();
+    }
+  };
+
+  const handleClear = () => {
+    if (sketchpadRef.current) {
+      sketchpadRef.current.clear();
+    }
+  };
 
   // Disable scrolling when component is mounted
   useEffect(() => {
@@ -134,18 +154,30 @@ function Layout() {
       >
         <Tab eventKey="tab1" title="Sketch">
           <Row className="layout-sketchpad">
-            <Sketchpad onSave={handleCanvasReady} />
+            <Sketchpad ref={sketchpadRef} onSave={handleCanvasReady} />
           </Row>
           <Container className="layout-Btn-container">
             <Row className="layout-Btn-row">
-              <Col xs={4} className="submit-Btn">
+              <Col xs={3} className="submit-Btn">
                 <SubmitButton onImageSubmit={handleSubmit} />
               </Col>
-              <Col xs={4} className="redo-Btn">
-                <button className="btn btn-secondary w-100">Redo</button>
+              <Col xs={3} className="redo-Btn">
+                <button
+                  className="btn btn-secondary w-100"
+                  onClick={handleRedo}
+                >
+                  Redo
+                </button>
               </Col>
-              <Col xs={4} className="undo-Btn">
-                <button className="btn btn-success w-100">Undo</button>
+              <Col xs={3} className="undo-Btn">
+                <button className="btn btn-success w-100" onClick={handleUndo}>
+                  Undo
+                </button>
+              </Col>
+              <Col xs={3} className="clear-Btn">
+                <button className="btn btn-success w-100" onClick={handleClear}>
+                  Clear
+                </button>
               </Col>
             </Row>
           </Container>

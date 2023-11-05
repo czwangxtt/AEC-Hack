@@ -1,13 +1,23 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from 'react';
 
-const Sketchpad = ({ onSave }) => {
+const Sketchpad = forwardRef((props, ref) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const exportImage = () => {
-    const base64ImageData = canvasRef.current.toDataURL("image/png");
-    onSave(base64ImageData);
-  };
+  const [history, setHistory] = useState([]);
+  const [redoList, setRedoList] = useState([]);
+
+  useImperativeHandle(ref, () => ({
+    undo,
+    redo,
+    clear,
+  }));
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -16,23 +26,23 @@ const Sketchpad = ({ onSave }) => {
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
 
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext('2d');
     context.scale(2, 2);
-    context.lineCap = "round";
-    context.strokeStyle = "black";
+    context.lineCap = 'round';
+    context.strokeStyle = 'black';
     context.lineWidth = 5;
     contextRef.current = context;
   }, []);
 
-  useEffect(() => {
-    onSave(canvasRef.current);
-  }, [onSave]);
-
-  const startDrawing = (event) => {
-    const { offsetX, offsetY } = getCoordinates(event);
+  const startDrawing = ({ nativeEvent }) => {
+    const { offsetX, offsetY } = nativeEvent;
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
+
+    const dataUrl = canvasRef.current.toDataURL();
+    setHistory([...history, dataUrl]);
+    setRedoList([]);
   };
 
   const finishDrawing = () => {
@@ -40,31 +50,43 @@ const Sketchpad = ({ onSave }) => {
     setIsDrawing(false);
   };
 
-  const draw = (event) => {
+  const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
       return;
     }
-    const { offsetX, offsetY } = getCoordinates(event);
+    const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
   };
 
-  // Helper function to get the coordinates based on event type
-  const getCoordinates = (event) => {
-    if (event.touches && event.touches.length > 0) {
-      // For touch events
-      const touch = event.touches[0];
-      return {
-        offsetX: touch.clientX - touch.target.offsetLeft,
-        offsetY: touch.clientY - touch.target.offsetTop,
-      };
-    } else {
-      // For mouse events
-      return {
-        offsetX: event.nativeEvent.offsetX,
-        offsetY: event.nativeEvent.offsetY,
-      };
-    }
+  const undo = () => {
+    if (history.length === 0) return;
+    setRedoList([...redoList, history[history.length - 1]]);
+    setHistory(history.slice(0, -1));
+    restoreCanvas(history[history.length - 2]);
+  };
+
+  const redo = () => {
+    if (redoList.length === 0) return;
+    setHistory([...history, redoList[redoList.length - 1]]);
+    setRedoList(redoList.slice(0, -1));
+    restoreCanvas(redoList[redoList.length - 1]);
+  };
+
+  const clear = () => {
+    const context = contextRef.current;
+    context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    setHistory([]);
+    setRedoList([]);
+  };
+
+  const restoreCanvas = (imageUrl) => {
+    const image = new Image();
+    image.src = imageUrl;
+    image.onload = () => {
+      contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      contextRef.current.drawImage(image, 0, 0, canvasRef.current.width, canvasRef.current.height);
+    };
   };
 
   return (
@@ -79,6 +101,6 @@ const Sketchpad = ({ onSave }) => {
       ref={canvasRef}
     />
   );
-};
+});
 
 export default Sketchpad;
