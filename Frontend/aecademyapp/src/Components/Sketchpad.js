@@ -20,7 +20,6 @@ const Sketchpad = forwardRef(({ onSave }, ref) => {
     const displayWidth = window.innerWidth; // 浏览器视口的宽度
     const displayHeight = window.innerHeight * 0.8; // 80% 的视口高度
 
-    // 由于您想要在高分辨率屏幕（如Retina显示屏）上保持清晰度，实际画布的像素数是CSS像素数的两倍
     canvas.width = displayWidth * 2;
     canvas.height = displayHeight * 2;
 

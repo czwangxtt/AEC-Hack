@@ -40,3 +40,6 @@
   text-align: center; /* 描述居中 */
   padding-top: 8px; /* 与图片有些间隙 */
 }
+.image-gallery {
+  height: 80vh;
+}

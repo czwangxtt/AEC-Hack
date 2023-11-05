@@ -88,19 +88,23 @@ function Layout() {
     const prompt = "test";
 
     if (base64ImageData) {
+      console.log(`${apiUrl}/Suggestion/GetSuggestion`);
       try {
         // use agnet proxy
-        const response = await fetch(`${apiUrl}/Suggestion/GetSuggestion`, {
-          // const response = await fetch("/api/Suggestion/GetSuggestion", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: prompt,
-            base64ImageData: base64ImageData,
-          }),
-        });
+        const response = await fetch(
+          "https://aecademyclient.azurewebsites.net/api/Suggestion/GetSuggestion ",
+          {
+            // const response = await fetch("/api/Suggestion/GetSuggestion", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              prompt: prompt,
+              base64ImageData: base64ImageData,
+            }),
+          }
+        );
 
         if (response.ok) {
           const responseData = await response.json();
@@ -152,7 +156,10 @@ function Layout() {
                 <button className="btn btn-success w-100">Undo</button>
               </Col> */}
               <Col xs={6} className="clear-Btn">
-                <button className="btn btn-danger w-100" onClick={handleClear}>
+                <button
+                  className="btn btn-secondary w-100"
+                  onClick={handleClear}
+                >
                   Clear
                 </button>
               </Col>
@@ -179,7 +186,9 @@ function Layout() {
               </div>
             ))}
           </div>
-          <button onClick={sendPutRequest}>Submit Selected</button>
+          <button className="btn btn-primary w-100" onClick={sendPutRequest}>
+            Submit Selected
+          </button>
         </Tab>
       </Tabs>
     </Container>
