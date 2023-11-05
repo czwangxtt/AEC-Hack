@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4nkOLotqPUbfx5qcVpo11RYCtSqKRgWSdl2xkwtegi0EmgPWGVWmYnNqcBdMI9+WsGUWUhJtwZK1F1wR9hXNGg==",
+  "dgSpecHash": "miO5wf3bx1bHFyhRPKg1chVZB8GZWQahCLW83S6WO9H1eX4IBMbDyIFSfW5echy5x7djhs7lrNgeZgR1PW0+Kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Server\\AECademyHubServer.Server.csproj",
   "expectedPackageFiles": [
@@ -65,6 +65,7 @@
     "C:\\Users\\cwang\\.nuget\\packages\\nest\\7.17.5\\nest.7.17.5.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\cwang\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",

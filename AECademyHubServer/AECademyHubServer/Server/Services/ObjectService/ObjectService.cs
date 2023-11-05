@@ -12,76 +12,72 @@ namespace AECademyHubServer.Server.Services.ObjectService
 {
     public class ObjectService : IObjectService
     {
-        private readonly DbContext _context;
-        private readonly BlobServiceClient _blobServiceClient;
-        private readonly ElasticClient _elasticClient;
+        private readonly DataContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ObjectService(DbContext context, BlobServiceClient blobServiceClient, ElasticClient elasticClient)
+
+        public ObjectService(DataContext context, IConfiguration configuration)
         {
             _context = context;
-            _blobServiceClient = blobServiceClient;
-            _elasticClient = elasticClient;
+            _configuration = configuration;
         }
 
         public async Task<ServiceResponse<Object>> HandleObjectAsync(ObjectRequest request, IFormFile file)
         {
-            // Begin a transaction to ensure atomicity
-            using var transaction = await _context.Database.BeginTransactionAsync();
-
-            try
+            // Add the ObjectRequest to the database
+            var obj = new Object(request);
+            var objRecord = await _context.Objects.FindAsync(obj.Guid);
+            if (objRecord != null)
             {
-                // Add the ObjectRequest to the database
-                var obj = new Object(request);
-                await _context.Set<Object>().AddAsync(obj);
-                await _context.SaveChangesAsync();
+                objRecord = obj;
+                _context.Objects.Update(objRecord);
+            }
+            else
+            {
+                // If the object does not exist, create a new instance and add it to the database
 
                 // Upload the file to Azure Blob Storage
-                string folderName = request.Guid.ToString();
-                BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient(folderName);
+                var blobServiceClient = new BlobServiceClient(_configuration.GetConnectionString("BlobConnection"));
+
+                BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient("aecademyhub");
                 await containerClient.CreateIfNotExistsAsync();
-                BlobClient blobClient = containerClient.GetBlobClient(file.FileName);
+
+                string folderName = request.Guid.ToString();
+                BlobClient blobClient = containerClient.GetBlobClient("/" + folderName + "/" + file.FileName);
                 using (var stream = file.OpenReadStream())
                 {
                     await blobClient.UploadAsync(stream, true);
                 }
 
-                // Index the object in Elasticsearch
-                var elasticObject = new
-                {
-                    request.Guid,
-                    file.FileName,
-                    FileType = file.ContentType,
-                    request.Description
-                };
-                var indexResponse = await _elasticClient.IndexDocumentAsync(elasticObject);
 
-                // Check if the indexing was successful
-                if (!indexResponse.IsValid)
-                {
-                    // Optionally, handle the error, possibly by logging it
-                    throw new Exception("Failed to index the document in Elasticsearch.");
-                }
-
-                await transaction.CommitAsync();
-                return new ServiceResponse<Object>()
-                {
-                    Data = obj,
-                    Success = true,
-                };
+                await _context.Objects.AddAsync(obj);
             }
-            catch (Exception ex)
+
+
+            await _context.SaveChangesAsync();
+
+            //// Index the object in Elasticsearch
+            //var elasticObject = new
+            //{
+            //    request.Guid,
+            //    file.FileName,
+            //    FileType = file.ContentType,
+            //    request.Description
+            //};
+            //var indexResponse = await _elasticClient.IndexDocumentAsync(elasticObject);
+
+            //// Check if the indexing was successful
+            //if (!indexResponse.IsValid)
+            //{
+            //    // Optionally, handle the error, possibly by logging it
+            //    throw new Exception("Failed to index the document in Elasticsearch.");
+            //}
+
+            return new ServiceResponse<Object>()
             {
-                // Log the exception
-                // TODO: Add your logging mechanism here
-
-                await transaction.RollbackAsync();
-                return new ServiceResponse<Object>()
-                {
-                    Data = null,
-                    Success = false,
-                    Message = ex.Message
-                }; ;
-            }
+                Data = obj,
+                Success = true,
+            };
         }
     }
 }

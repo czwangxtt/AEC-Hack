@@ -8,6 +8,7 @@ global using AECademyHubServer.Shared.Object;
 global using AECademyHubServer.Shared.Queue;
 global using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
+using Azure.Storage.Blobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection"));
 });
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
@@ -28,7 +30,6 @@ builder.Services.AddScoped<IQueueService, QueueService>();
 
 var app = builder.Build();
 
-app.UseSwaggerUI();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -43,6 +44,8 @@ else
 }
 
 app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 
