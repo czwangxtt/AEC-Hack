@@ -152,7 +152,10 @@ function Layout() {
                 <button className="btn btn-success w-100">Undo</button>
               </Col> */}
               <Col xs={6} className="clear-Btn">
-                <button className="btn btn-danger w-100" onClick={handleClear}>
+                <button
+                  className="btn btn-secondary w-100"
+                  onClick={handleClear}
+                >
                   Clear
                 </button>
               </Col>
@@ -179,7 +182,9 @@ function Layout() {
               </div>
             ))}
           </div>
-          <button onClick={sendPutRequest}>Submit Selected</button>
+          <button className="btn btn-primary w-100" onClick={sendPutRequest}>
+            Submit Selected
+          </button>
         </Tab>
       </Tabs>
     </Container>
