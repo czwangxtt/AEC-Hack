@@ -9,21 +9,28 @@ import React, {
 const Sketchpad = forwardRef(({ onSave }, ref) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
+
   const [isDrawing, setIsDrawing] = useState(false);
 
   useImperativeHandle(ref, () => ({
     clearCanvas,
   }));
-
   useEffect(() => {
     const canvas = canvasRef.current;
-    canvas.width = window.innerWidth * 2;
-    canvas.height = window.innerHeight * 2;
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`;
+    const displayWidth = window.innerWidth; // 浏览器视口的宽度
+    const displayHeight = window.innerHeight * 0.8; // 80% 的视口高度
 
+    // 由于您想要在高分辨率屏幕（如Retina显示屏）上保持清晰度，实际画布的像素数是CSS像素数的两倍
+    canvas.width = displayWidth * 2;
+    canvas.height = displayHeight * 2;
+
+    // CSS样式控制画布在浏览器中展示时的尺寸
+    canvas.style.width = `${displayWidth}px`;
+    canvas.style.height = `${displayHeight}px`;
+
+    // 设置2D上下文的属性
     const context = canvas.getContext("2d");
-    context.scale(2, 2);
+    context.scale(2, 2); // 缩放上下文，以保持画布在高分辨率屏幕上的清晰度
     context.lineCap = "round";
     context.strokeStyle = "black";
     context.lineWidth = 5;
