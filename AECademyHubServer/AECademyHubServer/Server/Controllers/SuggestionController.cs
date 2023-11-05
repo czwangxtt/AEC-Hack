@@ -21,10 +21,10 @@ namespace AECademyHubServer.Server.Controllers
         {
           
             // Process the image as required, for example storing to the temp folder
-            await _suggestionService.HandleSuggestionAsync(suggestion);
+            var suggestionList = await _suggestionService.HandleSuggestionAsync(suggestion);
             var response = new ServiceResponse<List<Suggestion>> ()
             {
-                Data = new List<Suggestion>(),
+                Data = suggestionList,
                 Success = true,
             };
 

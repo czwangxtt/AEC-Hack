@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "AECademyHubServer.Client.dll": "sha256-XDpXYqAwT3FruNpRR2nQ5GwA8JgUSdrhWLFpZSSWz3w=",
-      "AECademyHubServer.Shared.dll": "sha256-4W+dBS0HPJ4ziYiHRsrH8vGhH6WHInNUMLC0wATgoAw=",
+      "AECademyHubServer.Client.dll": "sha256-plzzPpz8Kh8y1u0tj7jf5kQvOPRGehi9YoD+cisCu18=",
+      "AECademyHubServer.Shared.dll": "sha256-kUOKpBEqgq0Tf\/6p2S3FEu04zx+v0TuqjhuLr77yAL4=",
       "Microsoft.AspNetCore.Components.dll": "sha256-0CD1GN+NVCvclhx0nlB17LzWlV6VEhZN\/GfKTzaPe\/I=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-iRh0XDocZaIx9g5TCjv+YvkjLDMiPMuck91H+vZ\/4yU=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-bVbF1KsNR4OzhAJi0uWdw5NlJcszP8mnQZQrpPLeS+w=",
@@ -25,6 +25,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-gt4vpfZtHpVewI0vTa6xOzGRf+vwJIkPY48RUqEGvXs=",
       "System.Collections.Concurrent.dll": "sha256-9i5yiH4BQw0eQJIRnv0NsFiR4WOE1D7hBQhGJC63kLY=",
       "System.Collections.dll": "sha256-t\/XQDXAzJ6qHiz554LetyavjF9FHWAPZZVchsLZy8NU=",
+      "System.ComponentModel.Annotations.dll": "sha256-\/jM+CuE\/uP4FLgRMRiiHxHl7ProuXTpO6y6wYDph6DA=",
       "System.ComponentModel.dll": "sha256-xN2\/aFJpHO0CmMyFz\/J7zcoQxuMZfg8j0ZZfHeHk3cQ=",
       "System.Memory.dll": "sha256-khCSO2bHexsRTkrkRwWc1REGJMu0ypFo6roMmJ0T58g=",
       "System.Net.Http.dll": "sha256-nU1jA+xWtdwq0kmiRZ+rTDW33GiZAzbMv3vynSEWDZA=",

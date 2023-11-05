@@ -110,3 +110,7 @@ C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECade
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Debug\net6.0\System.IO.Hashing.dll

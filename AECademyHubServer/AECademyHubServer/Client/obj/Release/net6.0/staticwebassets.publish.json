@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gOUUudmCR5n4Jgtp0XIMcCR/AxxgAFUSbymSm0y3A+s=",
+  "Hash": "P04IMteokWA1cqp9tGZHtyX3J8EGSTj5xfRzekHs9Og=",
   "Source": "AECademyHubServer.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -986,6 +986,40 @@
       "OriginalItemSpec": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.Private.CoreLib.dll"
     },
     {
+      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\compress\\Pmg+2ANk.br",
+      "SourceId": "AECademyHubServer.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Release\\net6.0\\publish\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.ComponentModel.Annotations.dll.br",
+      "AssetKind": "Publish",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.ComponentModel.Annotations.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "br",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.ComponentModel.Annotations.dll"
+    },
+    {
+      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\compress\\Pmg+2ANk.gz",
+      "SourceId": "AECademyHubServer.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Release\\net6.0\\publish\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.ComponentModel.Annotations.dll.gz",
+      "AssetKind": "Publish",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.ComponentModel.Annotations.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.ComponentModel.Annotations.dll"
+    },
+    {
       "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\compress\\Q617w1QL.br",
       "SourceId": "AECademyHubServer.Client",
       "SourceType": "Computed",
@@ -1834,6 +1868,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "obj\\Release\\net6.0\\linked\\System.Collections.dll"
+    },
+    {
+      "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.ComponentModel.Annotations.dll",
+      "SourceId": "AECademyHubServer.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\bin\\Release\\net6.0\\publish\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.ComponentModel.Annotations.dll",
+      "AssetKind": "Publish",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "obj\\Release\\net6.0\\linked\\System.ComponentModel.Annotations.dll"
     },
     {
       "Identity": "C:\\Users\\cwang\\OneDrive - HLW International LLP\\Documents\\GitHub\\AEC-Hack\\AECademyHubServer\\AECademyHubServer\\Client\\obj\\Release\\net6.0\\linked\\System.ComponentModel.dll",

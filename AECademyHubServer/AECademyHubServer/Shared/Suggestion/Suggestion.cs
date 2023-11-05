@@ -16,5 +16,6 @@ namespace AECademyHubServer.Shared.Suggestion
         public int DownloadNumber { get; set; }
         public string Reviews { get; set; } = string.Empty;
         public string Author { get; set; } = string.Empty;
+        public int DownloadCount { get; set; }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface ISuggestionService
     {
-        Task<ServiceResponse<List<Suggestion>>> HandleSuggestionAsync(SuggestionRequest request);
+        Task<List<Suggestion>> HandleSuggestionAsync(SuggestionRequest request);
     }
 }
