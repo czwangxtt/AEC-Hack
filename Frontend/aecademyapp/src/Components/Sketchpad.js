@@ -7,21 +7,21 @@ const Sketchpad = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    canvas.width = window.innerWidth * 2; // 倍数是为了增加分辨率
+    canvas.width = window.innerWidth * 2;
     canvas.height = window.innerHeight * 2;
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
 
     const context = canvas.getContext("2d");
-    context.scale(2, 2); // 避免在 HiDPI 显示器上出现模糊
+    context.scale(2, 2);
     context.lineCap = "round";
     context.strokeStyle = "black";
     context.lineWidth = 5;
     contextRef.current = context;
   }, []);
 
-  const startDrawing = ({ nativeEvent }) => {
-    const { offsetX, offsetY } = nativeEvent;
+  const startDrawing = (event) => {
+    const { offsetX, offsetY } = getCoordinates(event);
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
@@ -32,13 +32,31 @@ const Sketchpad = () => {
     setIsDrawing(false);
   };
 
-  const draw = ({ nativeEvent }) => {
+  const draw = (event) => {
     if (!isDrawing) {
       return;
     }
-    const { offsetX, offsetY } = nativeEvent;
+    const { offsetX, offsetY } = getCoordinates(event);
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
+  };
+
+  // Helper function to get the coordinates based on event type
+  const getCoordinates = (event) => {
+    if (event.touches && event.touches.length > 0) {
+      // For touch events
+      const touch = event.touches[0];
+      return {
+        offsetX: touch.clientX - touch.target.offsetLeft,
+        offsetY: touch.clientY - touch.target.offsetTop,
+      };
+    } else {
+      // For mouse events
+      return {
+        offsetX: event.nativeEvent.offsetX,
+        offsetY: event.nativeEvent.offsetY,
+      };
+    }
   };
 
   return (
@@ -47,6 +65,9 @@ const Sketchpad = () => {
       onMouseUp={finishDrawing}
       onMouseMove={draw}
       onMouseOut={finishDrawing}
+      onTouchStart={startDrawing}
+      onTouchMove={draw}
+      onTouchEnd={finishDrawing}
       ref={canvasRef}
     />
   );
