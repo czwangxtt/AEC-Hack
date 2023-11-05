@@ -1,0 +1,19 @@
+.layout-container {
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #d6f7ff,
+    rgb(123, 217, 240)
+  ); /* 从左到右的渐变 */
+}
+
+.layout-tab {
+  height: 10vh;
+}
+
+.layout-sketchpad {
+  margin: 2px;
+  padding: 5px;
+  height: 80vh;
+  background-color: rgb(249, 250, 250);
+}
