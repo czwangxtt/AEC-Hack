@@ -11,8 +11,7 @@ function Layout() {
   const { setData } = useData(); // 使用useData钩子
   const apiUrl = process.env.REACT_APP_API_URL || "/api"; // 本地开发时回退到代理
   const [dataItems, setDataItems] = useState([]); // 存储整个数据的数组
-  const [selectedItems, setSelectedItems] = useState({});//义一个状态来跟踪选中的项目
-
+  const [selectedItems, setSelectedItems] = useState({}); //义一个状态来跟踪选中的项目
 
   // Disable scrolling when component is mounted
   useEffect(() => {
@@ -32,6 +31,51 @@ function Layout() {
       return canvas.toDataURL("image/png");
     }
     return null;
+  };
+
+  const handleCheckboxChange = (e, guid, item) => {
+    const checked = e.target.checked;
+    setSelectedItems((prev) => {
+      // 如果选中了，添加到selectedItems中
+      if (checked) {
+        return { ...prev, [guid]: item };
+      } else {
+        // 如果取消了选中，从selectedItems中移除
+        const updated = { ...prev };
+        delete updated[guid];
+        return updated;
+      }
+    });
+  };
+
+  const sendPutRequest = async () => {
+    const entries = Object.values(selectedItems);
+    for (const item of entries) {
+      const requestBody = {
+        userGuid: item.author, // 根据实际情况获取 userGuid
+        objectGuid: item.guid,
+      };
+
+      try {
+        const response = await fetch("/api/Queue", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        // 检查响应是否成功
+        if (!response.ok) {
+          throw new Error("Failed to PUT data");
+        }
+
+        const responseData = await response.json();
+        console.log("Success:", responseData);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
   };
 
   const handleSubmit = async () => {
@@ -116,11 +160,17 @@ function Layout() {
                   index % 2 === 0 ? "new-row" : ""
                 }`}
               >
+                <input
+                  type="checkbox"
+                  checked={!!selectedItems[item.guid]}
+                  onChange={(e) => handleCheckboxChange(e, item.guid, item)}
+                />
                 {item.previewUrl && <img src={item.previewUrl} alt="Preview" />}
                 <p className="description">{item.description}</p>
               </div>
             ))}
           </div>
+          <button onClick={sendPutRequest}>Submit Selected</button>
         </Tab>
       </Tabs>
     </Container>
