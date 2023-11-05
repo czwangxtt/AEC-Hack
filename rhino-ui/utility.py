@@ -1,4 +1,4 @@
-
+import json
 import os
 # import requests
 import rhinoscriptsyntax as rs
@@ -18,11 +18,37 @@ def get_local_folder():
     return folder
 
 def fetch_from_web():
-    import requests
+    # import requests
+    # Replace with the URL you want to send a POST request to
+    url = "https://aecademyhubserverserver20231104151838.azurewebsites.net/api/Suggestion/GetSuggestion"
     
+    
+    # Data you want to send, getting the first in the queue
+    data_to_send = {"prompt": "string",
+                    "base64ImageData": "string"}
 
 
-    return {"sample": "text"}
+    data = {"data":data_to_send,
+            "url":url}
+    with open(get_local_folder() + "\\request_data.json","w") as json_file:
+        json.dump(data, json_file)
+
+    safety = 0
+    while True:
+        print (safety)
+        if os.path.exists(get_local_folder() + "\\return_data.json"):
+            break
+        rs.Sleep(1000)
+        safety += 1
+        if safety > 10:
+            return {}
+        
+    with open(get_local_folder() + "\\return_data.json","r") as json_file:
+        data = json.load(json_file)
+        
+    print (data)
+
+    return data
 
 
 def download_file(url):
@@ -98,11 +124,11 @@ def download_file(url):
         return None
         
 def import_to_rhino(data):
-    model_url = data.get("model_url", None)
+    model_url = data.get("url", None)
     if not model_url:
-        model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test.gh"
         model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test_sampler.3dm"
         model_url = "https://raw.githubusercontent.com/mcneel/rhinoscriptsyntax/rhino-6.x/Scripts/tests/AddPatchTests.py" 
+        model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test.gh"
         
     print (model_url)
     
