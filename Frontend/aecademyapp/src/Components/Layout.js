@@ -10,6 +10,7 @@ function Layout() {
   const [canvas, setCanvas] = useState(null); // 定义状态来存储canvas引用
   const [imagePreviewUrl, setImagePreviewUrl] = useState(""); // 新的状态变量保存图片的URL
   const { setData } = useData(); // 使用useData钩子
+  const apiUrl = process.env.REACT_APP_API_URL || "/api"; // 本地开发时回退到代理
 
   // Disable scrolling when component is mounted
   useEffect(() => {
@@ -39,7 +40,8 @@ function Layout() {
     if (base64ImageData) {
       try {
         // use agnet proxy
-        const response = await fetch("/api/Suggestion/GetSuggestion", {
+        const response = await fetch(`${apiUrl}/Suggestion/GetSuggestion`, {
+          // const response = await fetch("/api/Suggestion/GetSuggestion", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
