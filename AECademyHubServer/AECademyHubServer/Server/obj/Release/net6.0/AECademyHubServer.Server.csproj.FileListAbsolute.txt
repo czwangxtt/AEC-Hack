@@ -114,3 +114,6 @@ C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECade
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Release\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Release\net6.0\Elasticsearch.Net.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Release\net6.0\Nest.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\bin\Release\net6.0\Swashbuckle.AspNetCore.Annotations.dll

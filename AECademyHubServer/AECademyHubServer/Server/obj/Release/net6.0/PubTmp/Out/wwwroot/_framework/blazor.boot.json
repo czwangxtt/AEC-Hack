@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "AECademyHubServer.Client.dll": "sha256-NJbolCQkloqwRGVqaPZKw18otoXh74wyVQc7VMZT7S0=",
-      "AECademyHubServer.Shared.dll": "sha256-LhQEe\/rpoShHl8rFblDnyHfwI5kOIPDU0hmWdH8lkkM=",
+      "AECademyHubServer.Client.dll": "sha256-dwzhTmdq6OhrBjRhqB5XSVgo1YN7rjxOPRSJad+g3E8=",
+      "AECademyHubServer.Shared.dll": "sha256-+XV6VV\/pPB9IlwUi18oy0DGQpT3Zgzg\/wIWM5Uoo5lM=",
       "Microsoft.AspNetCore.Components.dll": "sha256-0CD1GN+NVCvclhx0nlB17LzWlV6VEhZN\/GfKTzaPe\/I=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-iRh0XDocZaIx9g5TCjv+YvkjLDMiPMuck91H+vZ\/4yU=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-bVbF1KsNR4OzhAJi0uWdw5NlJcszP8mnQZQrpPLeS+w=",

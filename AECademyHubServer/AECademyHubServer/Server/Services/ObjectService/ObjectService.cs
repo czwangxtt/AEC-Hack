@@ -59,10 +59,10 @@ namespace AECademyHubServer.Server.Services.ObjectService
             //// Index the object in Elasticsearch
             //var elasticObject = new
             //{
-            //    request.Guid,
+            //    obj.Guid,
             //    file.FileName,
             //    FileType = file.ContentType,
-            //    request.Description
+            //    obj.Description
             //};
             //var indexResponse = await _elasticClient.IndexDocumentAsync(elasticObject);
 

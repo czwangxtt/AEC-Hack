@@ -14,6 +14,7 @@ C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECade
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Azure.Identity.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Azure.Storage.Blobs.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Azure.Storage.Common.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Elasticsearch.Net.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authorization.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
@@ -49,7 +50,9 @@ C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECade
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Nest.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Annotations.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\cwang\OneDrive - HLW International LLP\Documents\GitHub\AEC-Hack\AECademyHubServer\AECademyHubServer\Server\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
