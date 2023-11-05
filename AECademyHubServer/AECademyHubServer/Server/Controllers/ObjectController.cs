@@ -15,9 +15,9 @@ namespace AECademyHubServer.Server.Controllers
 
         [HttpPost]
         [Route("PostObject")]
-        public async Task<ServiceResponse<ObjectRequest>> PostObject(ObjectRequest objectRequest)
+        public async Task<ServiceResponse<ObjectRequest>> PostObject(ObjectRequest objectRequest, IFormFile file)
         {
-            var objects = await _objectService.HandleObjectAsync(objectRequest);
+            var objects = await _objectService.HandleObjectAsync(objectRequest, file);
             var response = new ServiceResponse<ObjectRequest>()
             {
                 Data = new ObjectRequest(),

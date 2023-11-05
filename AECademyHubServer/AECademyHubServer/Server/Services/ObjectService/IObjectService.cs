@@ -1,7 +1,9 @@
-﻿namespace AECademyHubServer.Server.Services.ObjectService
+﻿using Object = AECademyHubServer.Shared.Object.Object;
+
+namespace AECademyHubServer.Server.Services.ObjectService
 {
     public interface IObjectService
     {
-        Task<ServiceResponse<ObjectRequest>> HandleObjectAsync(ObjectRequest request);
+        Task<ServiceResponse<Object>> HandleObjectAsync(ObjectRequest request, IFormFile file);
     }
 }

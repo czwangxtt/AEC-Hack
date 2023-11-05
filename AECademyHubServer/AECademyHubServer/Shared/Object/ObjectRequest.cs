@@ -9,16 +9,16 @@ namespace AECademyHubServer.Shared.Object
     public class ObjectRequest
     {
         public Guid Guid { get; set; }
-        public string? Name { get; set; }
-        public string? Type { get; set; }
-        public string? Description { get; set; }
-        public string? Url { get; set; }
-        public string? PreviewUrl { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
+        public string PreviewUrl { get; set; } = string.Empty;
         public int DownloadNumber { get; set; }
-        public string? PermissionLevel { get; set; }
+        public string PermissionLevel { get; set; } = string.Empty;
         public Guid AuthorGuid { get; set; }
-        public string? Reviews { get; set; }
-        
+        public string Reviews { get; set; } = string.Empty;
+
     }
 
 

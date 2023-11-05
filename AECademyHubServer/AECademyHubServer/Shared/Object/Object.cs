@@ -20,5 +20,21 @@ namespace AECademyHubServer.Shared.Object
         public string PermissionLevel { get; set; } = string.Empty;
         public Guid AuthorGuid { get; set; }
         public string Reviews { get; set; } = string.Empty;
+
+        public Object() { }
+
+        public Object(ObjectRequest request)
+        {
+            Guid = request.Guid;
+            Name = request.Name;
+            Type = request.Type;
+            Description = request.Description;
+            Url = request.Url;
+            PreviewUrl = request.PreviewUrl;
+            DownloadNumber = request.DownloadNumber;
+            PermissionLevel = request.PermissionLevel;
+            AuthorGuid = request.AuthorGuid;
+            Reviews = request.Reviews;
+        } 
     }
 }
