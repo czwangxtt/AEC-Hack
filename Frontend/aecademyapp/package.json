@@ -1,4 +1,5 @@
 {
+  "proxy": "https://aecademyhubserverserver20231104151838.azurewebsites.net",
   "name": "aecademyapp",
   "version": "0.1.0",
   "private": true,

@@ -1,9 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const Sketchpad = () => {
+const Sketchpad = ({ onSave }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  const exportImage = () => {
+    const base64ImageData = canvasRef.current.toDataURL("image/png");
+    onSave(base64ImageData);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,6 +23,10 @@ const Sketchpad = () => {
     context.lineWidth = 5;
     contextRef.current = context;
   }, []);
+
+  useEffect(() => {
+    onSave(canvasRef.current);
+  }, [onSave]);
 
   const startDrawing = (event) => {
     const { offsetX, offsetY } = getCoordinates(event);
