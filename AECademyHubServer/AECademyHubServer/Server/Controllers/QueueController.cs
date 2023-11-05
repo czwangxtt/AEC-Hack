@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace AECademyHubServer.Server.Controllers
 {
@@ -15,10 +14,17 @@ namespace AECademyHubServer.Server.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<ServiceResponse<string>>> Queue(QueueRequest request)
+        public async Task<ServiceResponse<string>> Queue(QueueRequest request)
         {
             var result = await _QueueService.UpdateQueueAsync(request);
-            return Ok(result);
+            return result;
+        }
+
+        [HttpGet]
+        public async Task<ServiceResponse<List<Suggestion>>> GetSuggestion(string userGuid)
+        {
+            var result = await _QueueService.GetSuggestionFromQueueAsync(userGuid);
+            return result;
         }
     }
 }
