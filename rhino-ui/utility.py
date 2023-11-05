@@ -103,6 +103,7 @@ def import_to_rhino(data):
         model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test.gh"
         model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\test_sampler.3dm"
         model_url = "https://raw.githubusercontent.com/mcneel/rhinoscriptsyntax/rhino-6.x/Scripts/tests/AddPatchTests.py" 
+        model_url = os.path.dirname(os.path.realpath(__file__)) + "\\test\\DataBaseFiles\\Facade_PopulateBlockModule_001.gh"
         
     print (model_url)
     

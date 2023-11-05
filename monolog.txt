@@ -1,0 +1,11 @@
+Title: AECademy HUB — A Virtual Time Capsule Accessible by Sketch
+
+The mission is to crowdsource knowledge across generations of AEC young graduates.
+
+Many of us come from educational backgrounds with minimal overlap between classes. Since entering the professional world, we've realized there's a gap in the professional knowledge we were exposed to early on. Perhaps you feel this now when you hire a junior engineer and find they lack the skills you expected. If only there was a way to travel back in time and impart this knowledge when we were younger.
+
+A large knowledge base is not a new concept. There are countless internal office resources and numerous training platforms on the market. However, what sets AECademy HUB apart is its focus on the student community. The nature of academia means there is never a stable group to pass down knowledge.
+
+We aim to crowdsource knowledge by allowing students and graduates to contribute to their virtual school by submitting models, scripts, notes, renderings, etc. Any student can find solutions and/or inspiration for their designs by sketching on their mobile device through a QR code provided in their working interface (Rhino or Revit). The Hub will then present the top 5 related contents based on the sketch. After selection, the resource will be integrated back into the working interface (model imported, Grasshopper script opened, etc.).
+
+The ranking of the top 5 is determined by several factors: the similarity to the input sketch and prompt, the download count, and the user's previous selection history. Here, everyone is an editor and is encouraged to edit any part in wiki style.
