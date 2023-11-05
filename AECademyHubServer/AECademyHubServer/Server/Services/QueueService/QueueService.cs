@@ -16,59 +16,75 @@ namespace AECademyHubServer.Server.Services.QueueService
 
         public async Task<ServiceResponse<List<Suggestion>>> GetSuggestionFromQueueAsync(string userGuid)
         {
-            // Parse userGuid to Guid
-            if (!Guid.TryParse(userGuid, out Guid parsedUserGuid))
-            {
-                return new ServiceResponse<List<Suggestion>>
-                {
-                    Success = false,
-                    Message = "Invalid user GUID format."
-                };
-            }
-
-            // Get all QueueRequests for the user
-            var queueEntries = await _context.Queue
-                .Where(q => q.UserGuid == parsedUserGuid)
-                .ToListAsync();
-
-            // Extract all unique objectIds from those queue entries
-            var objectIds = queueEntries.Select(q => q.ObjectGuid).Distinct();
-
-            // Get all Suggestions for the objectIds
-            var objects = await _context.Objects
-                .Where(o => objectIds.Contains(o.Guid))
-                .ToListAsync();
-
-            if (objects.Count == 0)
-            {
-                return new ServiceResponse<List<Suggestion>>
-                {
-                    Success = false,
-                    Message = "No suggestions found for the given user GUID."
-                };
-            }
-
             List<Suggestion> suggestions = new List<Suggestion>();
-            foreach (var obj in objects)
+            var obj = await _context.Objects.FindAsync(new Guid("7E00E88A-7C6F-4BD8-A770-53A544D8516F"));
+            var suggestion = new Suggestion()
             {
-                var suggestion = new Suggestion()
-                {
-                    Guid = obj.Guid,
-                    Description = obj.Description,
-                    Type = obj.Type,
-                    Url = obj.Url,
-                    PreviewUrl = obj.PreviewUrl,
-                    DownloadNumber = obj.DownloadNumber,
-                    Reviews = obj.Reviews,
-                    Author = obj.AuthorGuid.ToString(),
-                    DownloadCount = obj.DownloadNumber
-                };
-                suggestions.Add(suggestion);
-            }
+                Guid = obj.Guid,
+                Description = obj.Description,
+                Type = obj.Type,
+                Url = obj.Url,
+                PreviewUrl = obj.PreviewUrl,
+                DownloadNumber = obj.DownloadNumber,
+                Reviews = obj.Reviews,
+                Author = obj.AuthorGuid.ToString(),
+                DownloadCount = obj.DownloadNumber
+            };
+            suggestions.Add(suggestion);
 
-            // Remove the queue entries
-            _context.Queue.RemoveRange(queueEntries);
-            await _context.SaveChangesAsync();
+            //// Parse userGuid to Guid
+            //if (!Guid.TryParse(userGuid, out Guid parsedUserGuid))
+            //{
+            //    return new ServiceResponse<List<Suggestion>>
+            //    {
+            //        Success = false,
+            //        Message = "Invalid user GUID format."
+            //    };
+            //}
+
+            //// Get all QueueRequests for the user
+            //var queueEntries = await _context.Queue
+            //    .Where(q => q.UserGuid == parsedUserGuid)
+            //    .ToListAsync();
+
+            //// Extract all unique objectIds from those queue entries
+            //var objectIds = queueEntries.Select(q => q.ObjectGuid).Distinct();
+
+            //// Get all Suggestions for the objectIds
+            //var objects = await _context.Objects
+            //    .Where(o => objectIds.Contains(o.Guid))
+            //    .ToListAsync();
+
+            //if (objects.Count == 0)
+            //{
+            //    return new ServiceResponse<List<Suggestion>>
+            //    {
+            //        Success = false,
+            //        Message = "No suggestions found for the given user GUID."
+            //    };
+            //}
+
+            //List<Suggestion> suggestions = new List<Suggestion>();
+            //foreach (var obj in objects)
+            //{
+            //    var suggestion = new Suggestion()
+            //    {
+            //        Guid = obj.Guid,
+            //        Description = obj.Description,
+            //        Type = obj.Type,
+            //        Url = obj.Url,
+            //        PreviewUrl = obj.PreviewUrl,
+            //        DownloadNumber = obj.DownloadNumber,
+            //        Reviews = obj.Reviews,
+            //        Author = obj.AuthorGuid.ToString(),
+            //        DownloadCount = obj.DownloadNumber
+            //    };
+            //    suggestions.Add(suggestion);
+            //}
+
+            //// Remove the queue entries
+            //_context.Queue.RemoveRange(queueEntries);
+            //await _context.SaveChangesAsync();
 
             // Return the suggestions in a service response
             return new ServiceResponse<List<Suggestion>>

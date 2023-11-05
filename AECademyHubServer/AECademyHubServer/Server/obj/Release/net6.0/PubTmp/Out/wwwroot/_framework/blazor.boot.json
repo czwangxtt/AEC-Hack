@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "AECademyHubServer.Client.dll": "sha256-plzzPpz8Kh8y1u0tj7jf5kQvOPRGehi9YoD+cisCu18=",
-      "AECademyHubServer.Shared.dll": "sha256-kUOKpBEqgq0Tf\/6p2S3FEu04zx+v0TuqjhuLr77yAL4=",
+      "AECademyHubServer.Client.dll": "sha256-dwzhTmdq6OhrBjRhqB5XSVgo1YN7rjxOPRSJad+g3E8=",
+      "AECademyHubServer.Shared.dll": "sha256-+XV6VV\/pPB9IlwUi18oy0DGQpT3Zgzg\/wIWM5Uoo5lM=",
       "Microsoft.AspNetCore.Components.dll": "sha256-0CD1GN+NVCvclhx0nlB17LzWlV6VEhZN\/GfKTzaPe\/I=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-iRh0XDocZaIx9g5TCjv+YvkjLDMiPMuck91H+vZ\/4yU=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-bVbF1KsNR4OzhAJi0uWdw5NlJcszP8mnQZQrpPLeS+w=",
@@ -44,7 +44,7 @@
     "libraryInitializers": null,
     "pdb": null,
     "runtime": {
-      "dotnet.6.0.23.fuwi9a7c7v.js": "sha256-YYG9NE7FnTlr1qMbQzBTzUGZOcLX64xP2Z1+An1jT6U=",
+      "dotnet.6.0.23.fuwi9a7c7v.js": "sha256-NBKWQurqmAzcMA6+4UW+PKNh9E\/ITqqwFdONUTF\/RwQ=",
       "dotnet.timezones.blat": "sha256-LkY3Fufh0g5N20FCmf40Ihcr4PHqCCF7W+W9FtR7VyE=",
       "dotnet.wasm": "sha256-sIbHdkUlBqJcS4y4B2561GZZp4mDHskIDbSw39GLkXM=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",
