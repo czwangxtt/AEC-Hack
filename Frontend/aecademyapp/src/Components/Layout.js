@@ -91,17 +91,20 @@ function Layout() {
       console.log(`${apiUrl}/Suggestion/GetSuggestion`);
       try {
         // use agnet proxy
-        const response = await fetch(`${apiUrl}/Suggestion/GetSuggestion`, {
-          // const response = await fetch("/api/Suggestion/GetSuggestion", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: prompt,
-            base64ImageData: base64ImageData,
-          }),
-        });
+        const response = await fetch(
+          "https://aecademyclient.azurewebsites.net/api/Suggestion/GetSuggestion ",
+          {
+            // const response = await fetch("/api/Suggestion/GetSuggestion", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              prompt: prompt,
+              base64ImageData: base64ImageData,
+            }),
+          }
+        );
 
         if (response.ok) {
           const responseData = await response.json();
