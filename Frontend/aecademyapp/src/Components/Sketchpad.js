@@ -4,10 +4,7 @@ const Sketchpad = ({ onSave }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  // 栈来保存画图历史记录，以支持撤销操作
-  const [history, setHistory] = useState([]);
-  // 栈来保存撤销的状态，以支持重做操作
-  const [redoList, setRedoList] = useState([]);
+
   const exportImage = () => {
     const base64ImageData = canvasRef.current.toDataURL("image/png");
     onSave(base64ImageData);
@@ -37,12 +34,6 @@ const Sketchpad = ({ onSave }) => {
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
-
-    // 在开始绘制之前，保存当前状态
-    const canvas = canvasRef.current;
-    const dataUrl = canvas.toDataURL();
-    setHistory([...history, dataUrl]);
-    setRedoList([]); // 开始新的绘画会清空可重做的历史
   };
 
   const finishDrawing = () => {
