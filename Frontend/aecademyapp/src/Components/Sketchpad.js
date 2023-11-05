@@ -1,23 +1,17 @@
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  useImperativeHandle,
-  forwardRef,
-} from 'react';
+import React, { useRef, useEffect, useState } from "react";
 
-const Sketchpad = forwardRef((props, ref) => {
+const Sketchpad = ({ onSave }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  // 栈来保存画图历史记录，以支持撤销操作
   const [history, setHistory] = useState([]);
+  // 栈来保存撤销的状态，以支持重做操作
   const [redoList, setRedoList] = useState([]);
-
-  useImperativeHandle(ref, () => ({
-    undo,
-    redo,
-    clear,
-  }));
+  const exportImage = () => {
+    const base64ImageData = canvasRef.current.toDataURL("image/png");
+    onSave(base64ImageData);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -26,23 +20,29 @@ const Sketchpad = forwardRef((props, ref) => {
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
 
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext("2d");
     context.scale(2, 2);
-    context.lineCap = 'round';
-    context.strokeStyle = 'black';
+    context.lineCap = "round";
+    context.strokeStyle = "black";
     context.lineWidth = 5;
     contextRef.current = context;
   }, []);
 
-  const startDrawing = ({ nativeEvent }) => {
-    const { offsetX, offsetY } = nativeEvent;
+  useEffect(() => {
+    onSave(canvasRef.current);
+  }, [onSave]);
+
+  const startDrawing = (event) => {
+    const { offsetX, offsetY } = getCoordinates(event);
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
 
-    const dataUrl = canvasRef.current.toDataURL();
+    // 在开始绘制之前，保存当前状态
+    const canvas = canvasRef.current;
+    const dataUrl = canvas.toDataURL();
     setHistory([...history, dataUrl]);
-    setRedoList([]);
+    setRedoList([]); // 开始新的绘画会清空可重做的历史
   };
 
   const finishDrawing = () => {
@@ -50,43 +50,31 @@ const Sketchpad = forwardRef((props, ref) => {
     setIsDrawing(false);
   };
 
-  const draw = ({ nativeEvent }) => {
+  const draw = (event) => {
     if (!isDrawing) {
       return;
     }
-    const { offsetX, offsetY } = nativeEvent;
+    const { offsetX, offsetY } = getCoordinates(event);
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
   };
 
-  const undo = () => {
-    if (history.length === 0) return;
-    setRedoList([...redoList, history[history.length - 1]]);
-    setHistory(history.slice(0, -1));
-    restoreCanvas(history[history.length - 2]);
-  };
-
-  const redo = () => {
-    if (redoList.length === 0) return;
-    setHistory([...history, redoList[redoList.length - 1]]);
-    setRedoList(redoList.slice(0, -1));
-    restoreCanvas(redoList[redoList.length - 1]);
-  };
-
-  const clear = () => {
-    const context = contextRef.current;
-    context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-    setHistory([]);
-    setRedoList([]);
-  };
-
-  const restoreCanvas = (imageUrl) => {
-    const image = new Image();
-    image.src = imageUrl;
-    image.onload = () => {
-      contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-      contextRef.current.drawImage(image, 0, 0, canvasRef.current.width, canvasRef.current.height);
-    };
+  // Helper function to get the coordinates based on event type
+  const getCoordinates = (event) => {
+    if (event.touches && event.touches.length > 0) {
+      // For touch events
+      const touch = event.touches[0];
+      return {
+        offsetX: touch.clientX - touch.target.offsetLeft,
+        offsetY: touch.clientY - touch.target.offsetTop,
+      };
+    } else {
+      // For mouse events
+      return {
+        offsetX: event.nativeEvent.offsetX,
+        offsetY: event.nativeEvent.offsetY,
+      };
+    }
   };
 
   return (
@@ -101,6 +89,6 @@ const Sketchpad = forwardRef((props, ref) => {
       ref={canvasRef}
     />
   );
-});
+};
 
 export default Sketchpad;
